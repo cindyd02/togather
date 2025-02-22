@@ -1,61 +1,105 @@
 import React, { useState, useRef } from "react";
 import "./Swiping.css";
 
-// REPLACE WITH SCRAPED DATA
-const eventsData = [
-  {
-    id: 1,
-    title: "Music Festival",
-    image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Experience an electrifying night of live music.",
-    location: "New York City",
-  },
-  {
-    id: 2,
-    title: "Tech Conference",
-    image: "https://plus.unsplash.com/premium_photo-1681487469745-91d1d8a5836b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Join the top minds in tech and innovation.",
-    location: "San Francisco",
-  },
-  {
-    id: 3,
-    title: "Food Carnival",
-    image: "https://plus.unsplash.com/premium_photo-1664206613168-32650e8b63a0?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Taste delicious treats from around the world.",
-    location: "Los Angeles",
-  },
-  {
-    id: 4,
-    title: "Art Exhibition",
-    image: "https://images.unsplash.com/photo-1600903781679-7ea3cbc564c3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Explore breathtaking artwork from talented artists.",
-    location: "Chicago",
-  },
-];
 const Swiping = () => {
-  const [events, setEvents] = useState(eventsData);
+  const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [swipedDirection, setSwipedDirection] = useState(null);
+  const [selectedCity, setSelectedCity] = useState("All");
+  const [selectedDate, setSelectedDate] = useState("");
+
+  const handleCityChange = (e) => {
+    const city = e.target.value;
+    setSelectedCity(city);
+  };
+
+  const handleDateChange = (e) => {
+    const date = e.target.value;
+    setSelectedDate(date);
+  };
+
+  const handleTest = async () => {
+    try {
+      const response = await fetch('http://localhost:6000/test');  // Test endpoint
+      const data = await response.text();  // Fetch response as text
+      console.log(data);  // Should log 'Backend is working'
+    } catch (error) {
+      console.error('Error fetching test data:', error);
+    }
+  };  
+
+  const filteredEvents = selectedCity === "All"
+    ? events
+    : events.filter((event) => event.location === selectedCity);
 
   const handleSwipe = (id, direction) => {
     console.log(`Swiped ${direction}: ${id}`);
+    setSwipedDirection(direction);
     setEvents((prevEvents) => prevEvents.filter((event) => event.id !== id));
+
+    setTimeout(() => {
+      setSwipedDirection(null);
+    }, 1000);
   };
 
   return (
     <div className="swipe-container">
       <h2>Swipe on Events</h2>
+      <p className="swipe-note">Double click the event card to find out more info!</p> {/* Moved under header */}
+
+      {/* City and Date Inputs */}
+      <div className="search-filters">
+        <input
+          type="date"
+          value={selectedDate}
+          onChange={handleDateChange}
+          className="p-2 border rounded"
+        />
+        <select
+          value={selectedCity}
+          onChange={handleCityChange}
+          className="p-2 border rounded"
+        >
+          <option value="All">All Cities</option>
+          <option value="New York City">New York City</option>
+          <option value="San Francisco">San Francisco</option>
+          <option value="Los Angeles">Los Angeles</option>
+          <option value="Chicago">Chicago</option>
+        </select>
+        {/* <button onClick={handleClick} className="search-button">
+          Search
+        </button> */}
+        <button onClick={handleTest} className="search-button">
+          Search
+        </button>
+      </div>
+
       <div className="swipe-card-container">
-        {events.map((event) => (
-          <SwipeableCard key={event.id} event={event} onSwipe={handleSwipe} onClick={() => setSelectedEvent(event)} />
+        {filteredEvents.map((event) => (
+          <SwipeableCard
+            key={event.id}
+            event={event}
+            onSwipe={handleSwipe}
+            onDoubleClick={() => setSelectedEvent(event)} // Open modal on double click
+          />
         ))}
       </div>
 
       {selectedEvent && <EventModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />}
+      {swipedDirection && (
+        <div className="swipe-indicator">
+          {swipedDirection === "left" ? (
+            <span className="swipe-x">❌</span>
+          ) : (
+            <span className="swipe-heart">❤️</span>
+          )}
+        </div>
+      )}
     </div>
   );
 };
 
-const SwipeableCard = ({ event, onSwipe, onClick }) => {
+const SwipeableCard = ({ event, onSwipe, onDoubleClick }) => {
   const cardRef = useRef(null);
   let startX = 0;
   let currentX = 0;
@@ -103,7 +147,7 @@ const SwipeableCard = ({ event, onSwipe, onClick }) => {
       onTouchStart={onDragStart}
       onTouchMove={onDragMove}
       onTouchEnd={onDragEnd}
-      onClick={onClick} // 👈 Open modal on click
+      onDoubleClick={onDoubleClick} // 👈 Open modal on click
     >
       <img src={event.image} alt={event.title} className="event-image" />
       <div className="event-info">
