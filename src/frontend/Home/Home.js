@@ -1,18 +1,19 @@
 import React from "react";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <div style={{ textAlign: "center", padding: "50px" }}>
-      <h1>Let's Explore toGather!</h1>
+    <div className="home-container">
+      <h1 className="typewriter">
+        <span>Let's Explore toGather!</span>
+      </h1>
       <p>
-        Finding new people who are new to the city, who don’t know what to do
-        or who to go with, and who want to get out of their comfort zone to try
-        something new.
+        New to the city? Join us to find events near you and connect with others who want to explore too!
       </p>
       <button onClick={() => alert("Login logic goes here")}>Login</button>
-      <p>
+      <p2>
         Don't have an account? <a href="/sign-in">Sign up</a>
-      </p>
+      </p2>
     </div>
   );
 };

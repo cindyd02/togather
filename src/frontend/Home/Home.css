@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "Super";
+    src: url("../../assets/fonts/Supertea.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "JMH";
+    src: url("../../assets/fonts/JMH\ Typewriter-Thin.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.home-container p {
+    font-family: "JMH", sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    margin: 20px 0;
+    max-width: 600px;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+
+  .home-container p2 {
+    font-family: "JMH", sans-serif;
+    font-size: 0.8rem;
+    color: #333;
+    margin: 20px 0;
+    max-width: 600px;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centers vertically */
+    align-items: center;  /* Centers horizontally */
+    height: 100vh; /* Takes full viewport height */
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .typewriter span {
+    font-family: "Super", sans-serif; /* Apply the font */
+    display: inline-block;
+    overflow: hidden;
+    border-right: 2px solid #577598; /* Blinking cursor */
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    font-size: 3.8rem;
+    font-weight: bold;
+    color: #333;
+    animation: typewriter 2s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #577598;
+    }
+  }
+  .home-container button {
+    font-family: "JMH", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #577598;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-container button:hover {
+    background-color: #4a6480;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .home-container button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  
