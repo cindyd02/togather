@@ -16,20 +16,20 @@ const SignIn = () => {
         <h1>Sign In to toGather</h1>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>Email:</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
               required
             />
           </div>
           <div>
-            <label>Password:</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
               required
             />
           </div>
@@ -42,4 +42,5 @@ const SignIn = () => {
     </div>
   );
 };
+
 export default SignIn;

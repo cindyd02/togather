@@ -22,38 +22,38 @@ const Signup = () => {
         <h1>Sign Up for toGather</h1>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>Name:</label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
               required
             />
           </div>
           <div>
-            <label>Email:</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
               required
             />
           </div>
           <div>
-            <label>Password:</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
               required
             />
           </div>
           <div>
-            <label>Confirm Password:</label>
             <input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm Password"
               required
             />
           </div>
