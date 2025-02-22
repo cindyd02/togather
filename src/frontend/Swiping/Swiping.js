@@ -38,35 +38,40 @@ const Swiping = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [swipedDirection, setSwipedDirection] = useState(null);
   const [selectedCity, setSelectedCity] = useState("All");
-  const [selectedDate, setSelectedDate] = useState(""); // State to hold the date input
+  const [selectedDate, setSelectedDate] = useState(""); 
 
-  // Handle city selection
   const handleCityChange = (e) => {
     const city = e.target.value;
     setSelectedCity(city);
   };
 
-  // Handle date selection
   const handleDateChange = (e) => {
     const date = e.target.value;
     setSelectedDate(date);
   };
 
-  // Fetch events based on selected city and date
   const fetchEvents = async () => {
     try {
       const response = await fetch(`/scrapeSite?city=${selectedCity}&date=${selectedDate}`);
       const data = await response.json();
-      console.log(data)
-      setEvents(data.events); // Assuming server responds with an array of events
+
+      const updatedEvents = data.events.map((event, index) => ({
+        id: index + 1, 
+        title: event.title,
+        image: event.imgSrc,
+        description: event.description,
+        location: event.location || "Unknown Location", 
+        //date: event.date || "TBD", 
+      }));
+
+      setEvents(updatedEvents);
+      console.log(updatedEvents);
     } catch (error) {
       console.error("Error fetching events:", error);
     }
-  };
+  };  
 
-  // Filter events based on selected city
-  const filteredEvents = selectedCity === "All" ? events : events.filter((event) => event.location === selectedCity);
-
+  // Removed filteredEvents logic, using all events directly
   const handleSwipe = (id, direction) => {
     console.log(`Swiped ${direction}: ${id}`);
     setSwipedDirection(direction);
@@ -110,7 +115,8 @@ const Swiping = () => {
       <button onClick={fetchEvents}>Fetch Events</button>
 
       <div className="swipe-card-container">
-        {filteredEvents.map((event) => (
+        {/* Removed filtering logic, using all events */}
+        {events.map((event) => (
           <SwipeableCard
             key={event.id}
             event={event}
