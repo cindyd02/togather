@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const UserInfoForm = () => {
+const Profile = () => {
     const [name, setName] = useState('');
     const [gender, setGender] = useState('');
     const [age, setAge] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +23,10 @@ const UserInfoForm = () => {
     const handleEdit = () => {
         setIsEditing(true);
         setSubmitted(false);
+    };
+
+    const handleNext = () => {
+        navigate('/next');
     };
 
     return (
@@ -92,10 +99,11 @@ const UserInfoForm = () => {
                     <p><strong>Gender Identity:</strong> {gender}</p>
                     <p><strong>Age:</strong> {age}</p>
                     <button onClick={handleEdit}>Edit Profile</button>
+                    <button onClick={handleNext}>Next</button>
                 </div>
             )}
         </div>
     );
 };
 
-export default UserInfoForm;
+export default Profile;
