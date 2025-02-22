@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Profile.css'; // Import the CSS file
 
 const Profile = () => {
     const [name, setName] = useState('');
@@ -30,7 +31,7 @@ const Profile = () => {
     };
 
     return (
-        <div>
+        <div className="profile-container">
             <h2>Please Enter Your Information</h2>
             {!submitted || isEditing ? (
                 <form onSubmit={handleSubmit}>
@@ -43,39 +44,40 @@ const Profile = () => {
                             required
                         />
                     </label>
-                    <br /><br />
 
-                    <label>Gender Identity:</label><br />
-                    <label>
-                        <input
-                            type="radio"
-                            value="Female"
-                            checked={gender === 'Female'}
-                            onChange={(e) => setGender(e.target.value)}
-                            required
-                        />
-                        Female
-                    </label><br />
-                    <label>
-                        <input
-                            type="radio"
-                            value="Male"
-                            checked={gender === 'Male'}
-                            onChange={(e) => setGender(e.target.value)}
-                            required
-                        />
-                        Male
-                    </label><br />
-                    <label>
-                        <input
-                            type="radio"
-                            value="Nonbinary"
-                            checked={gender === 'Nonbinary'}
-                            onChange={(e) => setGender(e.target.value)}
-                            required
-                        />
-                        Nonbinary
-                    </label><br /><br />
+                    <label>Gender Identity:</label>
+                    <div>
+                        <label>
+                            <input
+                                type="radio"
+                                value="Female"
+                                checked={gender === 'Female'}
+                                onChange={(e) => setGender(e.target.value)}
+                                required
+                            />
+                            Female
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                value="Male"
+                                checked={gender === 'Male'}
+                                onChange={(e) => setGender(e.target.value)}
+                                required
+                            />
+                            Male
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                value="Nonbinary"
+                                checked={gender === 'Nonbinary'}
+                                onChange={(e) => setGender(e.target.value)}
+                                required
+                            />
+                            Nonbinary
+                        </label>
+                    </div>
 
                     <label>
                         Age:
@@ -86,14 +88,14 @@ const Profile = () => {
                             min="1"
                             required
                         />
-                    </label><br /><br />
+                    </label>
 
                     <button type="submit">
                         {isEditing ? 'Save Changes' : 'Submit'}
                     </button>
                 </form>
             ) : (
-                <div>
+                <div className="information-display">
                     <h3>Your Information:</h3>
                     <p><strong>Name:</strong> {name}</p>
                     <p><strong>Gender Identity:</strong> {gender}</p>
