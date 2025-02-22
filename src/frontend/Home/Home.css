@@ -32,19 +32,25 @@
     font-weight: bold;
     }
     .home-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centers vertically */
-    align-items: center; /* Centers horizontally */
-    height: 100vh; /* Takes full viewport height */
-    text-align: center;
-    padding: 20px;
-    background-image: url('../../assets/imgs/landscape_left.png');
-    background-position: -10px bottom;
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        padding: 20px;
+        background-image: 
+            url('../../assets/imgs/landscape_left.png'),
+            url('../../assets/imgs/landscape_right.png');
+        background-position: 
+            -50px bottom,
+            calc(100% + 90px) bottom;
+        background-repeat: no-repeat, no-repeat;
+        background-size: 60%, 50%;
+        background-attachment: fixed, fixed;
     }
+    
+    
     
     .typewriter span {
     font-family: "Super", sans-serif; /* Apply the font */
@@ -78,17 +84,21 @@
     }
     }
     .home-container button {
-    font-family: "JMH", sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    background-color: #577598;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 24px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: inline-block; /* Makes the button fit the text */
+        font-family: "JMH", sans-serif;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #577598;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 20px; /* Adjusted padding for better fit */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        white-space: nowrap; /* Prevents text from wrapping inside the button */
+        width: auto; /* Ensures button width adjusts to content */
+        min-width: fit-content; /* Prevents it from stretching unnecessarily */
     }
     
     .home-container button:hover {
