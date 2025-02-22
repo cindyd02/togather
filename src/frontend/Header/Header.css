@@ -1,0 +1,21 @@
+.app-header {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    background-color: none;
+    z-index: 1000;
+  }
+  
+  .logo-link {
+    text-decoration: none;
+  }
+  
+  .logo {
+    font-family: "Super", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: #333;
+    margin: 0;
+  }
+  
