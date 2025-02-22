@@ -3,16 +3,16 @@
     src: url("../../assets/fonts/Supertea.otf") format("truetype");
     font-weight: normal;
     font-style: normal;
-}
-
-@font-face {
+    }
+    
+    @font-face {
     font-family: "JMH";
     src: url("../../assets/fonts/JMH\ Typewriter-Thin.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
-}
-
-.home-container p {
+    }
+    
+    .home-container p {
     font-family: "JMH", sans-serif;
     font-size: 1.2rem;
     color: #333;
@@ -20,9 +20,9 @@
     max-width: 600px;
     line-height: 1.5;
     font-weight: bold;
-  }
-
-  .home-container p2 {
+    }
+    
+    .home-container p2 {
     font-family: "JMH", sans-serif;
     font-size: 0.8rem;
     color: #333;
@@ -30,18 +30,23 @@
     max-width: 600px;
     line-height: 1.5;
     font-weight: bold;
-  }
-.home-container {
+    }
+    .home-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* Centers vertically */
-    align-items: center;  /* Centers horizontally */
+    justify-content: center; /* Centers vertically */
+    align-items: center; /* Centers horizontally */
     height: 100vh; /* Takes full viewport height */
     text-align: center;
     padding: 20px;
-  }
-  
-  .typewriter span {
+    background-image: url('../../assets/imgs/landscape_left.png');
+    background-position: -10px bottom;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-attachment: fixed;
+    }
+    
+    .typewriter span {
     font-family: "Super", sans-serif; /* Apply the font */
     display: inline-block;
     overflow: hidden;
@@ -52,27 +57,27 @@
     font-weight: bold;
     color: #333;
     animation: typewriter 2s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
-  }
-  
-  @keyframes typewriter {
+    }
+    
+    @keyframes typewriter {
     from {
-      width: 0;
+    width: 0;
     }
     to {
-      width: 100%;
+    width: 100%;
     }
-  }
-  
-  @keyframes blink-caret {
+    }
+    
+    @keyframes blink-caret {
     from,
     to {
-      border-color: transparent;
+    border-color: transparent;
     }
     50% {
-      border-color: #577598;
+    border-color: #577598;
     }
-  }
-  .home-container button {
+    }
+    .home-container button {
     font-family: "JMH", sans-serif;
     font-size: 1.2rem;
     font-weight: bold;
@@ -84,17 +89,15 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .home-container button:hover {
+    }
+    
+    .home-container button:hover {
     background-color: #4a6480;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-  }
-  
-  .home-container button:active {
+    }
+    
+    .home-container button:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  
+    }
