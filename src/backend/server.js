@@ -1,12 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { scrapeSite } = require('./webScraper.js');
-const app = express();
 
-app.use(cors());  
+const app = express();
+const port = 3000; 
+
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-const port = process.env.PORT || 6000;
+app.use(express.static(path.join(__dirname, '../../build')));
 
 app.get('/test', (req, res) => {
   res.send('Backend is working');
@@ -23,6 +26,11 @@ app.get('/scrapeSite', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../build', 'index.html'));
 });
+
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
+

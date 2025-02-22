@@ -38,6 +38,7 @@ const Swiping = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [swipedDirection, setSwipedDirection] = useState(null);
   const [selectedCity, setSelectedCity] = useState("All");
+  const [selectedDate, setSelectedDate] = useState(""); // State to hold the date input
 
   // Handle city selection
   const handleCityChange = (e) => {
@@ -45,10 +46,26 @@ const Swiping = () => {
     setSelectedCity(city);
   };
 
+  // Handle date selection
+  const handleDateChange = (e) => {
+    const date = e.target.value;
+    setSelectedDate(date);
+  };
+
+  // Fetch events based on selected city and date
+  const fetchEvents = async () => {
+    try {
+      const response = await fetch(`/scrapeSite?city=${selectedCity}&date=${selectedDate}`);
+      const data = await response.json();
+      console.log(data)
+      setEvents(data.events); // Assuming server responds with an array of events
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  };
+
   // Filter events based on selected city
-  const filteredEvents = selectedCity === "All"
-    ? events
-    : events.filter((event) => event.location === selectedCity);
+  const filteredEvents = selectedCity === "All" ? events : events.filter((event) => event.location === selectedCity);
 
   const handleSwipe = (id, direction) => {
     console.log(`Swiped ${direction}: ${id}`);
@@ -77,6 +94,20 @@ const Swiping = () => {
           <option value="Chicago">Chicago</option>
         </select>
       </div>
+
+      {/* Date Picker */}
+      <div className="date-selector">
+        <label htmlFor="date">Choose a date:</label>
+        <input
+          type="date"
+          id="date"
+          value={selectedDate}
+          onChange={handleDateChange}
+        />
+      </div>
+
+      {/* Button to trigger event fetching */}
+      <button onClick={fetchEvents}>Fetch Events</button>
 
       <div className="swipe-card-container">
         {filteredEvents.map((event) => (
