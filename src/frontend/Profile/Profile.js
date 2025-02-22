@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Profile.css'; // Import the CSS file
+import './Profile.css'; 
 
 const Profile = () => {
     const [name, setName] = useState('');
+    const [pronouns, setPronouns] = useState('');
+    const [aboutMe, setAboutMe] = useState('');
     const [gender, setGender] = useState('');
     const [age, setAge] = useState('');
+    const [hometown, setHometown] = useState('');
+    const [interests, setInterests] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
@@ -32,7 +36,7 @@ const Profile = () => {
 
     return (
         <div className="profile-container">
-            <h2>Please Enter Your Information</h2>
+            <h2>Your Information</h2>
             {!submitted || isEditing ? (
                 <form onSubmit={handleSubmit}>
                     <label>
@@ -41,6 +45,17 @@ const Profile = () => {
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                    </label>
+
+                    <label>
+                        Age:
+                        <input
+                            type="number"
+                            value={age}
+                            onChange={(e) => setAge(e.target.value)}
+                            min="1"
                             required
                         />
                     </label>
@@ -80,13 +95,38 @@ const Profile = () => {
                     </div>
 
                     <label>
-                        Age:
+                        Pronouns:
                         <input
-                            type="number"
-                            value={age}
-                            onChange={(e) => setAge(e.target.value)}
-                            min="1"
-                            required
+                            type="text"
+                            value={pronouns}
+                            onChange={(e) => setPronouns(e.target.value)}
+                        />
+                    </label>
+
+                    <label>
+                        About Me:
+                        <input
+                            type="text"
+                            value={aboutMe}
+                            onChange={(e) => setAboutMe(e.target.value)}
+                        />
+                    </label>
+
+                    <label>
+                        Hometown:
+                        <input
+                            type="text"
+                            value={hometown}
+                            onChange={(e) => setHometown(e.target.value)}
+                        />
+                    </label>
+
+                    <label>
+                        Interests:
+                        <input
+                            type="text"
+                            value={interests}
+                            onChange={(e) => setInterests(e.target.value)}
                         />
                     </label>
 
@@ -98,8 +138,12 @@ const Profile = () => {
                 <div className="information-display">
                     <h3>Your Information:</h3>
                     <p><strong>Name:</strong> {name}</p>
-                    <p><strong>Gender Identity:</strong> {gender}</p>
                     <p><strong>Age:</strong> {age}</p>
+                    <p><strong>Gender Identity:</strong> {gender}</p>
+                    <p><strong>Pronouns:</strong> {pronouns}</p>
+                    <p><strong>About Me:</strong> {aboutMe}</p>
+                    <p><strong>Hometown:</strong> {hometown}</p>
+                    <p><strong>Interests:</strong> {interests}</p>
                     <button onClick={handleEdit}>Edit Profile</button>
                     <button onClick={handleNext}>Next</button>
                 </div>

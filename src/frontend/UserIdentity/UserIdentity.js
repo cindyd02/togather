@@ -17,7 +17,7 @@ const UserIdentity = () => {
 
   return (
     <div style={{ textAlign: "center", padding: "50px" }}>
-      <h1>User Profile</h1>
+      <h1>Now, let's get to know you!</h1>
       <form onSubmit={handleSubmit} style={{ display: "inline-block", textAlign: "left" }}>
         <div>
           <label>Name: <span style={{ color: "red" }}>*</span></label>
@@ -40,7 +40,7 @@ const UserIdentity = () => {
           />
         </div>
         <div>
-          <label>Gender: <span style={{ color: "red" }}>*</span></label>
+          <label>Gender Identity: <span style={{ color: "red" }}>*</span></label>
           <div style={{ display: "flex", alignItems: "center" }}>
             <label style={{ marginRight: "10px", display: "inline-block" }}>
               <input
@@ -68,24 +68,6 @@ const UserIdentity = () => {
                 onChange={(e) => setGender(e.target.value)}
               />
               Non-binary
-            </label>
-            <label style={{ marginRight: "10px", display: "inline-block" }}>
-              <input
-                type="radio"
-                value="other"
-                checked={gender === "other"}
-                onChange={(e) => setGender(e.target.value)}
-              />
-              Other
-            </label>
-            <label style={{ marginRight: "10px" }}>
-              <input
-                type="radio"
-                value="prefer-not-to-say"
-                checked={gender === "prefer-not-to-say"}
-                onChange={(e) => setGender(e.target.value)}
-              />
-              Prefer not to say
             </label>
           </div>
         </div>
