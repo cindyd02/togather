@@ -1,6 +1,36 @@
+/* City Dropdown Styles */
+.city-dropdown {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px; /* Space between dropdown and event cards */
+}
+
+.city-dropdown:focus {
+  outline: none;
+  border-color: #ff4757;
+  box-shadow: 0 0 10px rgba(255, 71, 87, 0.4);
+}
+
+.city-dropdown option {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Improve layout of swipe-container with dropdown */
 .swipe-container {
   text-align: center;
   margin-top: 20px;
+  position: relative;
+  padding-bottom: 20px; /* Space at the bottom */
 }
 
 .swipe-card-container {
@@ -90,4 +120,36 @@
   font-size: 14px;
   margin: 10px 0;
   color: #555;
+}
+
+.swipe-indicator {
+  position: absolute;
+  bottom: -80px; /* Positioned below the card */
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  z-index: 10;
+  transition: opacity 0.5s ease;
+}
+
+.swipe-x, .swipe-heart {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.swipe-x {
+  color: red;
+}
+
+.swipe-heart {
+  color: green;
+}
+
+.swipe-note {
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
 }
