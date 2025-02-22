@@ -1,4 +1,6 @@
+
 .container {
+    font-family: Monaco;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +31,7 @@ form {
 }
 
 input {
+    font-family: Monaco;
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;

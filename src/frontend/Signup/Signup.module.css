@@ -1,4 +1,5 @@
 .container {
+  font-family: Monaco;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,36 +25,48 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Increased the gap for more spacing */
-  align-items: stretch; /* Make inputs and button stretch to full width */
+  align-items: stretch;
 }
 
-input {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  font-family: Monaco;
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
-  box-sizing: border-box; /* Ensures padding is included in width calculation */
+  box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
+
+input[type="text"]:last-of-type,
+input[type="email"]:last-of-type,
+input[type="password"]:last-of-type {
+  margin-bottom: 0;
+}
+/* 
 input::placeholder {
   color: #aaa;
-}
+  font-family: Monaco;
+} */
 
 button {
+  font-family: Monaco;
   background-color: #4a6480;
-  color: #4a6480;
+  color: white;
   border: none;
   padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  width: 100%; /* Button now takes up the full width */
+  width: 100%;
 }
 
 button:hover {
-  background-color: #4a6480;
+  background-color: #3a5470;
 }
 
 p {

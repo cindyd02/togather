@@ -13,7 +13,7 @@ const SignIn = () => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h1>Sign In to toGather</h1>
+        <h1>Welcome back!</h1>
         <form onSubmit={handleSubmit}>
           <div>
             <input
