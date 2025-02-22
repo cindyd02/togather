@@ -5,7 +5,6 @@ import styles from "./SignIn.module.css";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Sign-in logic goes here");
@@ -43,5 +42,4 @@ const SignIn = () => {
     </div>
   );
 };
-
 export default SignIn;
