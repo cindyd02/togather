@@ -13,13 +13,13 @@ const LoginView = () => {
 		if (result.variant === "error") {
 			alert(result.message);
 		} else {
-			nav("/home");
+			nav("/");
 		}
 	};
 
 	return (
 		<div className="grid grid-cols-2 text-left">
-			<label>Username:</label>
+			<label>Username</label>
 			<input
 				type="text"
 				value={uname}
@@ -27,7 +27,7 @@ const LoginView = () => {
 				onChange={(e) => setUname(e.target.value)}
 				required
 			/>
-			<label>Password:</label>
+			<label>Password</label>
 			<input
 				type="password"
 				value={password}

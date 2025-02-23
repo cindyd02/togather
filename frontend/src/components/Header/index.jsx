@@ -1,27 +1,26 @@
-import { useUser } from "@/hook/user";
-import { Link, useNavigate } from "react-router-dom";
-import Profile from "./Profile";
-import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import "./index.css";
 
-const Header = () => {
-	const { user } = useUser();
-	const nav = useNavigate();
-
-	useEffect(() => {
-		console.log("User: ", user);
-		if (user === null) {
-			nav("/");
-		}
-	}, [user]);
-
+const Tab = ({ to, label }) => {
 	return (
-		<div className="flex px-10 py-3 border fixed top-0 w-full bg-white z-10">
-			<Link to="/" className="logo-link">
-				<h1 className="logo">toGather</h1>
-			</Link>
+		<NavLink
+			to={to}
+			className={({ isActive }) =>
+				isActive ? "tab tab-active" : "tab tab-inactive"
+			}
+		>
+			{label}
+		</NavLink>
+	);
+};
 
-			{user && <Profile />}
+const Header = () => {
+	return (
+		<div className="flex">
+			<Tab to="/" label="Home" />
+			<Tab to="/chats" label="Chats" />
+			<Tab to="/profile" label="Profile" />
+			<label className="fixed top-4 left-4 text-2xl">toGather</label>
 		</div>
 	);
 };

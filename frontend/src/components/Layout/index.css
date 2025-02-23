@@ -1,0 +1,7 @@
+div .folder {
+	background-image: url("/assets/imgs/body.png");
+	width: 1250px;
+	height: 750px;
+	background-size: 1250px 750px;
+	z-index: 999;
+}

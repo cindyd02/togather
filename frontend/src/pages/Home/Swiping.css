@@ -1,0 +1,225 @@
+.rate {
+	border: 2px solid black;
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+}
+
+.like {
+	border-color: #2ecc71;
+	color: #2ecc71;
+}
+
+.dislike {
+	border-color: #e74c3c;
+	color: #e74c3c;
+}
+
+.swipe-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start; /* Align items at the top */
+	margin-top: 20px;
+	position: relative;
+	padding-bottom: 40px;
+}
+
+.left-side {
+	width: 35%; /* Adjust this value based on how much space you want for the left content */
+	padding-right: 20px; /* Add space between left and right side */
+}
+
+.right-side {
+	width: 60%; /* Event cards take up the remaining space */
+	padding-left: 20px; /* Add space between left and right side */
+}
+
+.selector-container {
+	display: flex;
+	flex-direction: column; /* Stack city and date selectors vertically */
+	margin-bottom: 20px;
+}
+
+.city-selector,
+.date-selector {
+	margin-bottom: 10px; /* Space between selectors */
+}
+
+.fetch-button-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.swipe-card-container {
+	position: relative;
+	width: 100%;
+	height: 480px;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.event-card {
+	position: absolute;
+	width: 300px; /* Smaller width for event cards */
+	height: 450px; /* Smaller height for event cards */
+	background: #fff;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	user-select: none;
+	transition: transform 0.2s ease-out;
+	overflow: hidden;
+	cursor: pointer;
+	padding: 15px;
+}
+
+.event-image {
+	width: 100%;
+	height: 65%;
+	object-fit: cover;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.event-info {
+	width: 100%;
+	padding: 15px;
+	text-align: center;
+}
+
+.event-location {
+	font-weight: bold;
+	color: #ff4757;
+	margin-top: 8px;
+	font-size: 16px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content {
+	background: #fff;
+	padding: 25px;
+	border-radius: 12px;
+	width: 380px;
+	text-align: center;
+	box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+	position: relative;
+	overflow: hidden;
+}
+
+.close-button {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background: none;
+	border: none;
+	font-size: 22px;
+	color: #ff4757;
+	cursor: pointer;
+	transition: color 0.3s ease;
+}
+
+.close-button:hover {
+	color: #333;
+}
+
+.modal-image {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 12px;
+}
+
+.modal-description {
+	font-size: 15px;
+	margin: 15px 0;
+	color: #555;
+	line-height: 1.6;
+	text-align: justify;
+}
+
+.swipe-indicator {
+	position: absolute;
+	bottom: -90px;
+	width: 100%;
+	text-align: center;
+	font-size: 50px;
+	z-index: 10;
+	transition: opacity 0.5s ease;
+}
+
+.swipe-x,
+.swipe-heart {
+	display: inline-block;
+	opacity: 1;
+	transition: opacity 0.5s ease;
+	font-weight: bold;
+}
+
+.swipe-x {
+	color: #e74c3c;
+}
+
+.swipe-indicator .circle {
+	position: absolute;
+	width: 60px; /* Adjust the size of the circle */
+	height: 60px; /* Adjust the size of the circle */
+	border-radius: 50%;
+	background-color: rgb(0, 0, 0, 0.1); /* Black circle with 60% opacity */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.swipe-heart {
+	color: #2ecc71;
+}
+
+.swipe-x,
+.swipe-heart {
+	position: relative;
+	z-index: 1;
+}
+
+.swipe-note {
+	margin-top: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #555;
+	text-align: center;
+	font-style: italic;
+}
+
+.swipe-indicator {
+	position: absolute;
+	top: 20px;
+	right: 20px; /* Adjust position as needed */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10; /* Ensure it is on top of other content */
+}
+
+.swipe-indicator span {
+	position: relative;
+	font-size: 2rem; /* Adjust the size of the icon */
+}

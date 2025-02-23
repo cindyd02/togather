@@ -9,12 +9,20 @@ const users = [
 		pronouns: "she/her",
 		gender: "female",
 		about: "Love to visit art museums and try new foods!",
+		preferredGender: "",
 	},
 ];
 
 class UserStore {
 	user = null;
 	subscribers = new Set();
+
+	constructor() {
+		const user = localStorage.getItem("user");
+		if (user) {
+			this.user = JSON.parse(user);
+		}
+	}
 
 	subscribe = (notify) => {
 		this.subscribers.add(notify);
@@ -30,8 +38,7 @@ class UserStore {
 	login = (username, password) => {
 		const user = users.find((user) => user.username === username);
 		if (user && user.password === password) {
-			this.user = user;
-			this.notify();
+			this.setUser(user);
 			return {
 				variant: "ok",
 			};
@@ -44,6 +51,7 @@ class UserStore {
 
 	setUser = (userdata) => {
 		this.user = userdata;
+		localStorage.setItem("user", JSON.stringify(userdata));
 		this.notify();
 	};
 
@@ -52,8 +60,7 @@ class UserStore {
 	};
 
 	logout = () => {
-		this.user = null;
-		this.notify();
+		this.setUser(null);
 	};
 }
 

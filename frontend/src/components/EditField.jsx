@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TbPencil } from "react-icons/tb";
 
 const EditField = ({ initial, update, placeholder }) => {
 	const [val, setVal] = useState(initial);
@@ -36,11 +37,9 @@ const EditField = ({ initial, update, placeholder }) => {
 		);
 
 	return (
-		<div>
-			{initial}{" "}
-			<span className="underline" onClick={() => setEdit(true)}>
-				(edit)
-			</span>
+		<div className="flex">
+			{initial}
+			<TbPencil onClick={() => setEdit(true)} />
 		</div>
 	);
 };

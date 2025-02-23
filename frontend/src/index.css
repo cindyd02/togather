@@ -1,1 +1,48 @@
 @import "tailwindcss";
+
+@font-face {
+	font-family: "Super";
+	src: url("/assets/fonts/Supertea.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Vintages";
+	src: url("/assets/fonts/vintages.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "JMH";
+	src: url("/assets/fonts/JMH\ Typewriter-Thin.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: "Roboto";
+}
+
+h1,
+h2,
+h3,
+label {
+	font-family: "Super";
+}
+
+button {
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: #ff4757;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+button:hover {
+	background-color: #e84118;
+}

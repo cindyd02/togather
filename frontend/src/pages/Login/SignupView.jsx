@@ -13,19 +13,20 @@ const Signup = () => {
 		pronouns: "",
 		gender: "",
 		about: "",
+		preferredGender: "",
 	});
 
 	const handleSignup = () => {
 		userStore.setUser(data);
 		console.log("Created new user: ", data.username);
-		nav("/home");
+		nav("/");
 	};
 
 	return (
 		<div className="grid grid-cols-2 text-left">
 			{Object.entries(data).map(([key, value]) => (
 				<Fragment key={key}>
-					<label>{key.charAt(0).toUpperCase() + key.slice(1)}:</label>
+					<label>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
 					<input
 						type={key === "password" ? "password" : "text"}
 						value={value}
