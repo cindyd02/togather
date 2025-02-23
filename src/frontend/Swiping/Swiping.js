@@ -38,7 +38,7 @@ const Swiping = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [swipedDirection, setSwipedDirection] = useState(null);
   const [selectedCity, setSelectedCity] = useState("All");
-  const [selectedDate, setSelectedDate] = useState(""); 
+  const [selectedDate, setSelectedDate] = useState("");
 
   const handleCityChange = (e) => {
     const city = e.target.value;
@@ -61,7 +61,6 @@ const Swiping = () => {
         image: event.imgSrc,
         description: event.description,
         location: event.location || "Unknown Location", 
-        //date: event.date || "TBD", 
       }));
 
       setEvents(updatedEvents);
@@ -69,15 +68,13 @@ const Swiping = () => {
     } catch (error) {
       console.error("Error fetching events:", error);
     }
-  };  
+  };
 
-  // Removed filteredEvents logic, using all events directly
   const handleSwipe = (id, direction) => {
     console.log(`Swiped ${direction}: ${id}`);
     setSwipedDirection(direction);
     setEvents((prevEvents) => prevEvents.filter((event) => event.id !== id));
 
-    // Hide the swipe indicator after 1 second
     setTimeout(() => {
       setSwipedDirection(null);
     }, 1000);
@@ -85,60 +82,69 @@ const Swiping = () => {
 
   return (
     <div className="swipe-container">
-      <h2>Swipe on Events</h2>
-      <p className="swipe-note">Double click the event card to find out more info!</p> {/* Moved under header */}
+      <div className="left-side">
+        <h2>Swipe on Events</h2>
+        <p className="swipe-note">Double click the event card to find out more info!</p>
 
-      {/* City Dropdown */}
-      <div className="city-selector">
-        <label htmlFor="city">Choose a city:</label>
-        <select id="city" value={selectedCity} onChange={handleCityChange}>
-          <option value="All">All Cities</option>
-          <option value="New York City">New York City</option>
-          <option value="San Francisco">San Francisco</option>
-          <option value="Los Angeles">Los Angeles</option>
-          <option value="Chicago">Chicago</option>
-        </select>
+        {/* City and Date Selectors */}
+        <div className="selector-container">
+          <div className="city-selector">
+            <label htmlFor="city">Choose a city:</label>
+            <select id="city" value={selectedCity} onChange={handleCityChange}>
+              <option value="All">All Cities</option>
+              <option value="New York City">New York City</option>
+              <option value="San Francisco">San Francisco</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Chicago">Chicago</option>
+            </select>
+          </div>
+
+          <div className="date-selector">
+            <label htmlFor="date">Choose a date:</label>
+            <input
+              type="date"
+              id="date"
+              value={selectedDate}
+              onChange={handleDateChange}
+            />
+          </div>
+        </div>
+
+        {/* Button to trigger event fetching */}
+        <div className="fetch-button-container">
+          <button onClick={fetchEvents}>Fetch Events</button>
+        </div>
       </div>
 
-      {/* Date Picker */}
-      <div className="date-selector">
-        <label htmlFor="date">Choose a date:</label>
-        <input
-          type="date"
-          id="date"
-          value={selectedDate}
-          onChange={handleDateChange}
-        />
-      </div>
-
-      {/* Button to trigger event fetching */}
-      <button onClick={fetchEvents}>Fetch Events</button>
-
-      <div className="swipe-card-container">
-        {/* Removed filtering logic, using all events */}
-        {events.map((event) => (
-          <SwipeableCard
-            key={event.id}
-            event={event}
-            onSwipe={handleSwipe}
-            onDoubleClick={() => setSelectedEvent(event)} // Open modal on double click
-          />
-        ))}
+      <div className="right-side">
+        <div className="swipe-card-container">
+          {events.map((event) => (
+            <SwipeableCard
+              key={event.id}
+              event={event}
+              onSwipe={handleSwipe}
+              onDoubleClick={() => setSelectedEvent(event)} // Open modal on double click
+            />
+          ))}
+        </div>
       </div>
 
       {selectedEvent && <EventModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />}
       {swipedDirection && (
-        <div className="swipe-indicator">
-          {swipedDirection === "left" ? (
-            <span className="swipe-x">❌</span>
-          ) : (
-            <span className="swipe-heart">❤️</span>
-          )}
-        </div>
-      )}
+  <div className="swipe-indicator">
+    <div className="circle"></div> {/* Circle behind the icon */}
+    {swipedDirection === "left" ? (
+      <span className="swipe-x">❌</span>
+    ) : (
+      <span className="swipe-heart">❤️</span>
+    )}
+  </div>
+)}
     </div>
   );
 };
+
+
 
 const SwipeableCard = ({ event, onSwipe, onDoubleClick }) => {
   const cardRef = useRef(null);
