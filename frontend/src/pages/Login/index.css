@@ -1,0 +1,104 @@
+@font-face {
+	font-family: "Super";
+	src: url("assets/fonts/Supertea.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "JMH";
+	src: url("assets/fonts/JMH\ Typewriter-Thin.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.home-container p {
+	font-family: "JMH", sans-serif;
+	font-size: 1.2rem;
+	color: #333;
+	margin: 20px 0;
+	max-width: 600px;
+	line-height: 1.5;
+	font-weight: bold;
+}
+
+.home-container p2 {
+	font-family: "JMH", sans-serif;
+	font-size: 0.8rem;
+	color: #333;
+	margin: 20px 0;
+	max-width: 600px;
+	line-height: 1.5;
+	font-weight: bold;
+}
+.home-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	text-align: center;
+	padding: 20px;
+	background-image: url("assets/imgs/landscape_left.png"),
+		url("assets/imgs/landscape_right.png");
+	background-position: -50px bottom, calc(100% + 90px) bottom;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 60%, 50%;
+	background-attachment: fixed, fixed;
+}
+
+.typewriter span {
+	font-family: "Super", sans-serif; /* Apply the font */
+	display: inline-block;
+	overflow: hidden;
+	border-right: 2px solid #577598; /* Blinking cursor */
+	white-space: nowrap;
+	letter-spacing: 0.05em;
+	font-size: 3.8rem;
+	font-weight: bold;
+	color: #333;
+	animation: typewriter 2s steps(20, end) forwards,
+		blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typewriter {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: #577598;
+	}
+}
+
+button {
+	font-family: "JMH", sans-serif;
+	font-weight: bold;
+	background-color: #4a6480;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 10px;
+	font-size: 14px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+button.inline {
+	background-color: transparent;
+	color: unset;
+}
+
+button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
