@@ -17,30 +17,32 @@ const Profile = () => {
 	}
 
 	return (
-		<div className="p-20 flex flex-col">
-			<h2 className="text-3xl mb-10">Profile</h2>
-			<div className="grid grid-cols-[1fr_3fr] gap-1.5 text-md">
-				{Object.entries(user)
-					.filter(([k]) => !["username", "password"].includes(k))
-					.map(([key, value]) => (
-						<Fragment key={key}>
-							<label>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
-							<EditField
-								placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
-								initial={value}
-								update={(v) =>
-									userStore.setUser({
-										...user,
-										[key]: v,
-									})
-								}
-							/>
-						</Fragment>
-					))}
+		<div className="p-20">
+			<div className="flex flex-col bg-amber-50 p-10 rounded-2xl">
+				<h2 className="text-3xl mb-10">Profile</h2>
+				<div className="grid grid-cols-[1fr_3fr] gap-1.5 text-md">
+					{Object.entries(user)
+						.filter(([k]) => !["username", "password"].includes(k))
+						.map(([key, value]) => (
+							<Fragment key={key}>
+								<label>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
+								<EditField
+									placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
+									initial={value}
+									update={(v) =>
+										userStore.setUser({
+											...user,
+											[key]: v,
+										})
+									}
+								/>
+							</Fragment>
+						))}
+				</div>
+				<button className="mt-10" onClick={handleLogout}>
+					Log out
+				</button>
 			</div>
-			<button className="mt-10 ml-auto" onClick={handleLogout}>
-				Log out
-			</button>
 		</div>
 	);
 };

@@ -30,7 +30,7 @@ const Home = () => {
 
 	return (
 		<div className="grid grid-cols-[2fr_1fr] gap-20 p-20">
-			<div>
+			<div className="bg-amber-50 p-4 rounded-2xl">
 				<h1 className="text-3xl mb-5">
 					Welcome to toGather! <span>🎉</span>
 				</h1>
