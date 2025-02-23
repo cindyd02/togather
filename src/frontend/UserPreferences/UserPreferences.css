@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "Super";
+    src: url("../../assets/fonts/Supertea.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container {
+    font-family: "Monaco", monospace;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    max-width: 750px; 
+    margin: 0 auto;
+  }
+  
+
+.container p {
+    font-family: "Monaco", monospace;
+}
+
+.form {
+    width: 300px; 
+    margin: 0 auto; 
+  }
+  
+

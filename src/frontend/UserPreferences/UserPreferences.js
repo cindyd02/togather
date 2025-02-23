@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./UserPreferences.css";
 
 const UserPreferences = () => {
   const [age, setAge] = useState("");
@@ -12,9 +13,10 @@ const UserPreferences = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "50px" }}>
-      <h1>Let's Get to Know You</h1>
-      <form onSubmit={handleSubmit} style={{ display: "inline-block", textAlign: "left" }}>
+    <div className="container">
+        <h1>Let's get to know your preferences</h1>
+        <p>Help us find the perfect group for you!</p>
+        <form onSubmit={handleSubmit} className="form">
         <div>
           <label>Age:</label>
           <input
@@ -31,7 +33,7 @@ const UserPreferences = () => {
             value={gender}
             onChange={(e) => setGender(e.target.value)}
             required
-            style={{ display: "block", width: "100%", padding: "8px", marginBottom: "10px" }}
+            style={{ display: "block", width: "100%", padding: "8px", marginBottom: "10px", fontFamily: "Monaco"}}
           >
             <option value="">Select</option>
             <option value="male">Male</option>
@@ -39,6 +41,8 @@ const UserPreferences = () => {
             <option value="non-binary">Non-binary</option>
             <option value="other">Other</option>
             <option value="prefer-not-to-say">Prefer not to say</option>
+            <option value="no-preference">No Preference</option>
+
           </select>
         </div>
         <div>
