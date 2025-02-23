@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# toGather
+An event discovery app that connects users with like-minded people to attend events together.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+toGather was inspired by the challenge of meeting new people and finding great events, especially in a new city or when looking to expand your social circle. The app makes event discovery effortless by allowing users to swipe on events they’re interested in and automatically matching them with others who share the same interests. Group chats are instantly created to help users connect, plan, and attend events together—making every outing more memorable.
 
-## Available Scripts
+## Key Features
+- 🎫 **Effortless Event Discovery**: Swipe left or right to browse events happening near you.
+- 💬 **Instant Group Chats**: Get automatically added to group chats with others interested in the same events to coordinate plans seamlessly.
+- 👥 **Profile Customization**: Update your location and set event preferences to find the best matches.
+- 📲 **Notifications**: Receive alerts when a new group chat is created, so you never miss an opportunity to connect.
 
-In the project directory, you can run:
+## Development
 
-### `npm start`
+To run the backend:
+- `cd backend`
+- `npm install`
+- `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Note: the frontend should be built first using `cd frontend` and `npm run build`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run the frontend:
+- `cd frontend`
+- `npm install`
+- `npm run dev`
 
-### `npm test`
+## Built With
+- **React**: Frontend for a smooth, engaging UI with swiping functionality.
+- **TailwindCSS**: For fast and flexible styling.
+- **Vite**: Development and build tool for frontend.
+- **Node.js + Express**: Backend API and web scraping functionality.
+- **AWS S3**: For deployment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How It Works
+1. **Event Browsing**: Users explore local events by swiping or clicking thumbs-up/thumbs-down buttons.
+2. **Matching Algorithm**: Automatically matches users with others who are interested in attending the same event.
+3. **Group Chats**: Instantly creates group chats for event coordination.
+4. **Profile Interaction**: Click on group chat members to view their details and connect further.
 
-### `npm run build`
+## Challenges
+- **Web Scraping**: Implemented a JavaScript function to scrape event data from allevents.in using Axios and Cheerio.
+- **CORS Issues**: Successfully resolved CORS issues when connecting the Node.js backend to the React frontend using Express middleware.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Accomplishments
+- Built a robust matching algorithm to connect users with similar interests.
+- Designed a smooth, intuitive UI for event browsing with swipe functionality.
+- Implemented notification features to keep users engaged and informed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## What's Next for toGather
+- 🚀 **Enhanced Event Discovery**: Improve the web scraper to gather more events from diverse sources.
+- 🎯 **Increased Personalization**: Allow users to specify event preferences and explore events in neighboring cities.
+- 📨 **Expanded Messaging**: Introduce direct messaging and friending features for deeper social connections.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Authors
+- Cindy Dong
+- Olivia Seto
+- Rebecca Wu
+- Edward Wei
