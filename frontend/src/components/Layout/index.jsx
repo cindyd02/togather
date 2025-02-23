@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import Header from "../Header";
 import "./index.css";
+import Match from "../Match";
 
 const Layout = () => {
 	const nav = useNavigate();
@@ -15,12 +16,15 @@ const Layout = () => {
 	}, [nav, user]);
 
 	return (
-		<div className="w-full h-screen bg-amber-50 flex justify-center items-center">
-			<div className="flex flex-col gap-0">
-				<Header />
-				<div className="folder">
-					<Outlet />
+		<div className="home-container">
+			<div className="w-full h-screen flex justify-center items-center overflow-x-hidden text-left">
+				<div className="flex flex-col gap-0">
+					<Header />
+					<div className="folder">
+						<Outlet />
+					</div>
 				</div>
+				<Match />
 			</div>
 		</div>
 	);

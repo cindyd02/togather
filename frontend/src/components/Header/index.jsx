@@ -20,7 +20,10 @@ const Header = () => {
 			<Tab to="/" label="Home" />
 			<Tab to="/chats" label="Chats" />
 			<Tab to="/profile" label="Profile" />
-			<label className="fixed top-4 left-4 text-2xl">toGather</label>
+			<label className="fixed top-4 left-4 text-2xl flex gap-2 items-center">
+				<img src="/favicon.png" alt="logo" className="w-10 h-10" />
+				toGather
+			</label>
 		</div>
 	);
 };

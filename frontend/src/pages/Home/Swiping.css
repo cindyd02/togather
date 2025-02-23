@@ -9,6 +9,10 @@
 	font-size: 25px;
 }
 
+li {
+	margin-top: 15px;
+}
+
 .like {
 	border-color: #2ecc71;
 	color: #2ecc71;

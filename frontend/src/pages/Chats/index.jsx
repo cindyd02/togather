@@ -1,9 +1,8 @@
-import { useChatrooms } from "@/hook/chats";
+import { members, useChatrooms } from "@/hook/chats";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Chats = () => {
 	const { chatRooms } = useChatrooms();
-	console.log(chatRooms);
 	return (
 		<div className="grid grid-cols-[3fr_5fr] gap-5 p-20">
 			<div>
@@ -16,12 +15,17 @@ const Chats = () => {
 					>
 						<div className="my-5 p-2">
 							<div className="flex gap-4 items-center">
-								<label>{room.roomName}</label>
+								<label>
+									{room.roomName}: {room.topic}
+								</label>
 
 								<div className="flex">
 									{room.members.map((user) => (
-										<div key={user.username} className="w-9 -ml-3">
-											<img src={user.picture} alt={user.username} />
+										<div key={members[user].username} className="w-9 -ml-3">
+											<img
+												src={members[user].picture}
+												alt={members[user].username}
+											/>
 										</div>
 									))}
 								</div>

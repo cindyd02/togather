@@ -231,3 +231,72 @@ export const eventData = [
 		location: "Charlottesville",
 	},
 ];
+
+export const eventTopics = {
+	"EDM Festival": "Music & Dance",
+	"Tech Startup Conference": "Tech Enthusiasts",
+	"Food Carnival": "Food & Drink",
+	"Jazz Night": "Music & Dance",
+	"Art Exhibition": "Art & Culture",
+	"Wine Tasting": "Food & Drink",
+	"Book Fair": "Literature & Culture",
+	"Film Festival": "Film & Entertainment",
+	"Craft Fair": "Art & Craft",
+	"Comedy Show": "Entertainment",
+	"Startup Pitch Night": "Tech Enthusiasts",
+	"Farmers Market": "Food & Drink",
+	"Music in the Park": "Music & Outdoor",
+	"Tech Workshop": "Tech Enthusiasts",
+	"Food Truck Rally": "Food & Drink",
+	"Theater Performance": "Art & Culture",
+	Hackathon: "Tech Enthusiasts",
+	"Culinary Workshop": "Food & Drink",
+	"Outdoor Movie Night": "Film & Outdoor",
+	"Tech Meetup": "Tech Enthusiasts",
+	"Brewery Tour": "Food & Drink",
+};
+
+export const eventMessages = {
+	"EDM Festival":
+		"Hey everyone! Let's get together and enjoy an electrifying night at the EDM Festival in New York. It's going to be an unforgettable experience with amazing music and a vibrant atmosphere!",
+	"Tech Startup Conference":
+		"Hi all! Join us at the Tech Startup Conference in San Francisco. It's a great opportunity to network with industry leaders and stay ahead of the latest tech trends!",
+	"Food Carnival":
+		"Hello foodies! Let's indulge in a world of flavors at the Food Carnival in Charlottesville. From gourmet dishes to street food, there's something for everyone!",
+	"Jazz Night":
+		"Hey jazz lovers! Relax and enjoy the smooth tunes at Jazz Night in New York. It's going to be a cozy evening with great music, food, and drinks!",
+	"Art Exhibition":
+		"Hi art enthusiasts! Discover stunning artworks at the Art Exhibition in San Francisco. Meet the artists and enjoy live performances!",
+	"Wine Tasting":
+		"Hello wine lovers! Savor exquisite wines at our exclusive Wine Tasting event in Charlottesville. Learn about the winemaking process and enjoy gourmet pairings!",
+	"Book Fair":
+		"Hey bookworms! Dive into a world of books at the Book Fair in New York. Meet authors, attend readings, and participate in workshops!",
+	"Film Festival":
+		"Hi film buffs! Experience the magic of cinema at the Film Festival in San Francisco. Attend screenings, Q&A sessions, and networking events!",
+	"Craft Fair":
+		"Hello crafters! Find unique handmade treasures at the Craft Fair in Charlottesville. Meet local artisans and enjoy live demonstrations!",
+	"Comedy Show":
+		"Hey comedy fans! Laugh out loud at the Comedy Show in New York. It's going to be a fun night with top comedians!",
+	"Startup Pitch Night":
+		"Hi innovators! Witness the future of tech at Startup Pitch Night in San Francisco. Network with industry professionals and discover the next big thing!",
+	"Farmers Market":
+		"Hello market-goers! Shop fresh and local at the Farmers Market in Charlottesville. Enjoy live music, food trucks, and a vibrant community atmosphere!",
+	"Music in the Park":
+		"Hey music lovers! Enjoy live music in a beautiful park setting in New York. Bring a picnic and relax on the grass with family and friends!",
+	"Tech Workshop":
+		"Hi tech enthusiasts! Enhance your skills at the Tech Workshop in San Francisco. Network with industry professionals and gain valuable insights!",
+	"Food Truck Rally":
+		"Hello foodies! Taste delicious dishes at the Food Truck Rally in Charlottesville. Enjoy live music, games, and a fun atmosphere for the whole family!",
+	"Theater Performance":
+		"Hey theater fans! Experience the magic of live theater at the Theater Performance in New York. Enjoy stunning sets, costumes, and performances!",
+	Hackathon:
+		"Hi developers! Collaborate and innovate at the Hackathon in San Francisco. Compete for prizes and network with industry leaders!",
+	"Culinary Workshop":
+		"Hello chefs! Learn to cook like a pro at the Culinary Workshop in Charlottesville. Enjoy a fun and educational experience with fellow food enthusiasts!",
+	"Outdoor Movie Night":
+		"Hey movie fans! Watch a classic movie under the stars at the Outdoor Movie Night in New York. Bring a blanket and enjoy a fun evening with family and friends!",
+	"Tech Meetup":
+		"Hi techies! Network and share ideas at the Tech Meetup in San Francisco. Make valuable connections in the tech community!",
+	"Brewery Tour":
+		"Hello beer lovers! Explore the brewing process at the Brewery Tour in Charlottesville. Sample a variety of craft beers and enjoy a fun and educational experience!",
+};

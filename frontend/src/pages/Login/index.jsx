@@ -8,6 +8,19 @@ const Login = () => {
 
 	return (
 		<div className="home-container">
+			<div className="flex">
+				<img src="/favicon.png" alt="logo" className="w-30 h-30" />
+				<img
+					src="/assets/imgs/user3.png"
+					alt="logo"
+					className="w-30 h-30 -ml-10 z-10"
+				/>
+				<img
+					src="/assets/imgs/user2.png"
+					alt="logo"
+					className="w-30 h-30 -ml-10"
+				/>
+			</div>
 			<h1 className="typewriter">
 				<span>Let&apos;s Explore toGather!</span>
 			</h1>

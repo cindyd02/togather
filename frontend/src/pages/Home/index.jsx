@@ -1,8 +1,9 @@
 import { useState, useRef } from "react";
 import "./Swiping.css";
 import { eventData } from "@/hook/events";
-import { TbInfoCircle, TbUser } from "react-icons/tb";
+import { TbArrowBigUp, TbInfoCircle, TbUser } from "react-icons/tb";
 import { LuThumbsDown, LuThumbsUp } from "react-icons/lu";
+import { demoMatch, demoMatchTimer } from "@/hook/match";
 
 const Home = () => {
 	const [events, setEvents] = useState(eventData);
@@ -10,6 +11,14 @@ const Home = () => {
 	const [swipedDirection, setSwipedDirection] = useState(null);
 
 	const handleSwipe = (id, direction) => {
+		if (direction === "right") {
+			clearTimeout(demoMatchTimer.cur);
+			demoMatchTimer.recentName = events.find((event) => event.id === id).title;
+			demoMatchTimer.cur = setTimeout(() => {
+				demoMatch();
+			}, 3000);
+		}
+
 		console.log(`Swiped ${direction}: ${id}`);
 		setSwipedDirection(direction);
 		setEvents((prevEvents) => prevEvents.filter((event) => event.id !== id));
@@ -25,46 +34,38 @@ const Home = () => {
 				<h1 className="text-3xl mb-5">
 					Welcome to toGather! <span>🎉</span>
 				</h1>
-				<p>
-					toGather is your go-to platform for finding friends to attend events
-					with in your city. Whether you're looking for concert buddies,
-					festival companions, or just someone to explore with, we make it easy
-					to connect with like-minded people.
-				</p>
+				<div>
+					<label>toGather</label> is your go-to platform for finding friends to
+					attend events with in your city. Whether you&apos;re looking for
+					concert buddies, festival companions, or just someone to explore with,
+					we make it easy to connect with like-minded people.
+				</div>
 
 				<h3 className="text-2xl mb-5 mt-6">
 					<span>🔍</span> How It Works
 				</h3>
 				<ul>
 					<li>
-						<strong>
-							Home <span>🏠</span> –
-						</strong>{" "}
-						Browse events happening near you and let us know your interest!
-						Click the <strong>green thumbs up</strong> if you're in or the{" "}
-						<strong>red thumbs down</strong> if you’re not. We’ll match you with
-						others who share your interests.
+						<h3>Home</h3> Browse events happening near you and let us know your
+						interest! Click the <strong>green thumbs up</strong> if you&apos;re
+						in or the <strong>red thumbs down</strong> if you&apos;re not.
+						We&apos;ll match you with others who share your interests.
 					</li>
 					<li>
-						<strong>
-							Chats <span>💬</span> –
-						</strong>{" "}
-						Once you're matched, a <strong>group chat</strong> is automatically
-						created for each event, so you can coordinate plans and get to know
-						your event crew.
+						<h3>Chats</h3> Once you&apos;re matched, a{" "}
+						<strong>group chat</strong> is automatically created for each event,
+						so you can coordinate plans and get to know your event crew. Click
+						on the other members to view their details!
 					</li>
 					<li>
-						<strong>
-							Profile <span>👤</span> –
-						</strong>{" "}
-						Customize your profile, update your location, and set your event
-						preferences to find the best matches.
+						<h3>Profile</h3> Customize your profile, update your location, and
+						set your event preferences to find the best matches.
 					</li>
 				</ul>
 
 				<p className="mt-6">
-					Ready to make new connections and experience events together? Let's
-					get started! <span>🚀</span>
+					Ready to make new connections and experience events together?
+					Let&apos;s get started! <span>🚀</span>
 				</p>
 			</div>
 			<div>
@@ -77,6 +78,10 @@ const Home = () => {
 							onDoubleClick={() => setSelectedEvent(event)} // Open modal on double click
 						/>
 					))}
+				</div>
+				<div className="mt-120 flex flex-col items-center pr-8 opacity-50">
+					<TbArrowBigUp />
+					What do you think about this event?
 				</div>
 				{selectedEvent && (
 					<EventModal
