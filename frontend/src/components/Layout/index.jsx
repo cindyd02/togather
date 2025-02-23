@@ -17,6 +17,7 @@ const Layout = () => {
 
 	return (
 		<div className="home-container">
+			<Match />
 			<div className="w-full h-screen flex justify-center items-center overflow-x-hidden text-left">
 				<div className="flex flex-col gap-0">
 					<Header />
@@ -24,7 +25,6 @@ const Layout = () => {
 						<Outlet />
 					</div>
 				</div>
-				<Match />
 			</div>
 		</div>
 	);

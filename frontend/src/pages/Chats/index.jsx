@@ -1,4 +1,5 @@
-import { members, useChatrooms } from "@/hook/chats";
+import { chatStore, members, useChatrooms } from "@/hook/chats";
+import { TbTrash } from "react-icons/tb";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Chats = () => {
@@ -14,7 +15,7 @@ const Chats = () => {
 						className={({ isActive }) => (isActive ? "active-chat" : "")}
 					>
 						<div className="my-5 p-2">
-							<div className="flex gap-4 items-center">
+							<div className="flex w-full gap-4 items-center">
 								<label>
 									{room.roomName}: {room.topic}
 								</label>
@@ -28,6 +29,15 @@ const Chats = () => {
 											/>
 										</div>
 									))}
+								</div>
+								<div
+									className="ml-auto"
+									onClick={(e) => {
+										e.stopPropagation();
+										chatStore.deleteRoom(room.id);
+									}}
+								>
+									<TbTrash className="ml-auto text-red-400" />
 								</div>
 							</div>
 							<div className="line-clamp-2">{room.messages.at(-1).message}</div>

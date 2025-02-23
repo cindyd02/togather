@@ -174,6 +174,12 @@ class ChatStore {
 		return this.chatRooms;
 	};
 
+	deleteRoom = (roomId) => {
+		const chatData = this.chatRooms;
+		const newChat = chatData.filter((c) => c.id !== roomId);
+		this.setChat(newChat);
+	};
+
 	sendMessage = (msg, roomId, sender) => {
 		const chatData = this.chatRooms;
 		const room = chatData.find((room) => room.id === roomId);

@@ -12,7 +12,10 @@ const Match = () => {
 
 	if (match) {
 		return (
-			<div className="fixed bottom-0 right-0 bg-white p-5 shadow-lg">
+			<div
+				className="fixed bottom-0 right-0 bg-white p-5 shadow-lg"
+				style={{ zIndex: 10000 }}
+			>
 				<h2>You&apos;ve got a match!</h2>
 
 				<div>
@@ -22,7 +25,10 @@ const Match = () => {
 						conversation started in the group chat!
 					</div>
 					<Link to={`/chats/${match.id}`}>
-						<div className="flex gap-2 underline cursor-pointer" onClick={matchStore.clearMatch}>
+						<div
+							className="flex gap-2 underline cursor-pointer"
+							onClick={matchStore.clearMatch}
+						>
 							Take me there!
 							<TbArrowBigRightLines />
 						</div>
