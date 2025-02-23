@@ -2,8 +2,8 @@ import { useSyncExternalStore } from "react";
 
 const users = [
 	{
-		username: "cindy123",
-		password: "togather",
+		username: "c",
+		password: "c",
 		age: 22,
 		location: "New York",
 		pronouns: "she/her",
