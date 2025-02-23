@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./UserIdentity.module.css";
 
 const UserIdentity = () => {
   const [name, setName] = useState("");
@@ -7,12 +8,7 @@ const UserIdentity = () => {
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
   const [hometown, setHometown] = useState("");
-  const [interests, setInterests] = useState([]);
-
-  const handleInterestChange = (e) => {
-    const value = Array.from(e.target.selectedOptions, option => option.value);
-    setInterests(value);
-  };
+  const [interests, setInterests] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,10 +17,10 @@ const UserIdentity = () => {
 
   return (
     <div style={{ textAlign: "center", padding: "50px" }}>
-      <h1>User Profile</h1>
+      <h1>Now, let's get to know you!</h1>
       <form onSubmit={handleSubmit} style={{ display: "inline-block", textAlign: "left" }}>
         <div>
-          <label>Name:</label>
+          <label>Name: <span style={{ color: "red" }}>*</span></label>
           <input
             type="text"
             value={name}
@@ -32,6 +28,48 @@ const UserIdentity = () => {
             required
             style={{ display: "block", width: "100%", padding: "8px", marginBottom: "10px" }}
           />
+        </div>
+        <div>
+          <label>Age: <span style={{ color: "red" }}>*</span></label>
+          <input
+            type="number"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+            required
+            style={{ display: "block", width: "100%", padding: "8px", marginBottom: "10px" }}
+          />
+        </div>
+        <div>
+          <label>Gender Identity: <span style={{ color: "red" }}>*</span></label>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <label style={{ marginRight: "10px", display: "inline-block" }}>
+              <input
+                type="radio"
+                value="male"
+                checked={gender === "male"}
+                onChange={(e) => setGender(e.target.value)}
+              />
+              Male
+            </label>
+            <label style={{ marginRight: "10px", display: "inline-block" }}>
+              <input
+                type="radio"
+                value="female"
+                checked={gender === "female"}
+                onChange={(e) => setGender(e.target.value)}
+              />
+              Female
+            </label>
+            <label style={{ marginRight: "10px", display: "inline-block" }}>
+              <input
+                type="radio"
+                value="non-binary"
+                checked={gender === "non-binary"}
+                onChange={(e) => setGender(e.target.value)}
+              />
+              Non-binary
+            </label>
+          </div>
         </div>
         <div>
           <label>Pronouns:</label>
@@ -44,35 +82,10 @@ const UserIdentity = () => {
         </div>
         <div>
           <label>About Me:</label>
-          <textarea
+          <input
+            type="text"
             value={aboutMe}
             onChange={(e) => setAboutMe(e.target.value)}
-            style={{ display: "block", width: "100%", padding: "8px", marginBottom: "10px" }}
-          />
-        </div>
-        <div>
-          <label>Gender:</label>
-          <select
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-            required
-            style={{ display: "block", width: "100%", padding: "8px", marginBottom: "10px" }}
-          >
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="non-binary">Non-binary</option>
-            <option value="other">Other</option>
-            <option value="prefer-not-to-say">Prefer not to say</option>
-          </select>
-        </div>
-        <div>
-          <label>Age:</label>
-          <input
-            type="number"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            required
             style={{ display: "block", width: "100%", padding: "8px", marginBottom: "10px" }}
           />
         </div>
@@ -82,27 +95,17 @@ const UserIdentity = () => {
             type="text"
             value={hometown}
             onChange={(e) => setHometown(e.target.value)}
-            required
             style={{ display: "block", width: "100%", padding: "8px", marginBottom: "10px" }}
           />
         </div>
         <div>
           <label>Interests:</label>
-          <select
-            multiple
+          <input
+            type="text"
             value={interests}
-            onChange={handleInterestChange}
+            onChange={(e) => setInterests(e.target.value)}
             style={{ display: "block", width: "100%", padding: "8px", marginBottom: "10px" }}
-          >
-            <option value="coding">Coding</option>
-            <option value="music">Music</option>
-            <option value="traveling">Traveling</option>
-            <option value="sports">Sports</option>
-            <option value="reading">Reading</option>
-            <option value="art">Art</option>
-            <option value="cooking">Cooking</option>
-            <option value="photography">Photography</option>
-          </select>
+          />
         </div>
         <button type="submit">Save Profile</button>
       </form>
